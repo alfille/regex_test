@@ -2,6 +2,7 @@ regex_test
 ==========
 
 Test POSIX regular expressions - simple C commandline tester
+Written 2014 by Paul H Alfille
 
 Do you want to test the rather archane regex routines separately from your program? This program allows you to do that without much fuss. 
 
