@@ -131,6 +131,10 @@ int main( int argc, char * argv[] )
                 break ;
             case '3':
                 extended = !extended ;
+                if ( regr == 0 ) {
+                    regfree( &regc ) ;
+                }
+                regr = regcomp( &regc, regexR(regex), extended?REG_EXTENDED:0 ) ;
                 break ;
             default :
                 break ;
