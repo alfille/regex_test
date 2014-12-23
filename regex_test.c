@@ -97,7 +97,7 @@ int main( int argc, char * argv[] )
                     if ( s == -1 ) {
                         break ;
                     }
-                    printf("%d:\t%d -> %d  <%.*s>\n",i,s,e,e-s,&b[s]);
+                    printf("%d:\t%d -> %d  {%.*s}{%.*s}{%s}\n",i,s,e,s,b,e-s,&b[s],&b[e]);
                 }
             }
         } else {
