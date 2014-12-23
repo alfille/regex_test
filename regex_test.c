@@ -10,9 +10,10 @@
 
 static char getcharnow( void )
 {
-	char garbage[MAXERRORMSG];
+	static char *  garbage = NULL ;
+    static size_t garbage_len ;
 	char c = getchar();
-	fgets( garbage, MAXERRORMSG, stdin ) ;
+	getline( &garbage, &garbage_len, stdin ) ;
 	return c ;
 }
 
@@ -45,7 +46,7 @@ static void trim_newline( char * buffer )
 	}
 }
 
-int main( int argc, char argv[] )
+int main( int argc, char * argv[] )
 {
 	char * regex = NULL ;
 	size_t regex_len ;
@@ -81,7 +82,7 @@ int main( int argc, char argv[] )
 			regerror( regr, &regc, rege, MAXERRORMSG ) ;
 			printf("XXX Error compiling expression XXX %s\n",rege ) ;
 		}
-		printf("\nChoosse:\n") ;	
+		printf("\nChoose:\n") ;	
 		printf( "1. Regex : <%s>\n",regexR(regex) ) ; 
 		printf( "2. String: <%s>\n",regexS(string) ) ;
 		printf( "3. Mode  :  %s \n",extended?"Extended":"Basic" ) ;
